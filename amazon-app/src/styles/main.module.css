@@ -1,0 +1,6 @@
+.container {
+    height: calc(100vh - 80px);
+    width: calc(100vw - 302px);
+    padding: 20px;
+    background-color: #f5f4f2;
+}
