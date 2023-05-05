@@ -2,12 +2,49 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import Product from './pages/Product'
 import reportWebVitals from './reportWebVitals';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App/>,
+  },
+
+  {
+    path: "/about",
+    element: <div>About</div>,
+  },
+
+  {
+    // it renders this element
+    element: <Product />,
+
+    // when the URL matches this segment
+    path: "/:productId",
+
+    // with this data loaded before rendering
+    // loader: async ({ request, params }) => {
+    //   return fetch(
+    //     `https://fakestoreapi.com/products/${params.productId}`,
+    //     { signal: request.signal }
+    //   );
+    // },
+    // and renders this element in case something went wrong
+    errorElement: <div>error</div>,
+  },
+]);
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
