@@ -2,70 +2,19 @@
 import styles from "../styles/products.module.css";
 
 //components
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { AiFillFire } from "react-icons/ai";
 import logo from "../logo.svg";
 import { AiOutlineLeft } from "react-icons/ai";
 import { AiOutlineRight } from "react-icons/ai";
-
 const Products = () => {
-  const links = [
-    {
-      name: "Lorem Ipsum",
-      link: "#",
-      price: "10 €",
-    },
-    {
-      name: "Lorem Ipsum",
-      link: "#",
-      price: "10 €",
-    },
-    {
-      name: "Lorem Ipsum",
-      link: "#",
-      price: "10 €",
-    },
-    {
-      name: "Lorem Ipsum",
-      link: "#",
-      price: "10 €",
-    },
-    {
-      name: "Lorem Ipsum",
-      link: "#",
-      price: "10 €",
-    },
-    {
-      name: "Lorem Ipsum",
-      link: "#",
-      price: "10 €",
-    },
-    {
-      name: "Lorem Ipsum",
-      link: "#",
-      price: "10 €",
-    },
-    {
-      name: "Lorem Ipsum",
-      link: "#",
-      price: "10 €",
-    },
-    {
-      name: "Lorem Ipsum",
-      link: "#",
-      price: "10 €",
-    },
-    {
-      name: "Lorem Ipsum",
-      link: "#",
-      price: "10 €",
-    },
-    {
-      name: "Lorem Ipsum",
-      link: "#",
-      price: "10 €",
-    },
-  ];
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products")
+      .then((res) => res.json())
+      .then((json) => setProducts(json));
+  }, []);
 
   return (
     <div className={styles.mainContainer}>
@@ -84,18 +33,20 @@ const Products = () => {
         </div>
       </div>
       <div className={styles.links}>
-        {links.map((item, index) => {
+        {products.map((item, index) => {
           return (
-            <div key={index + 1} className={styles.linksContainer}>
-              <div style={{ backgroundColor: "#fff" }}>
-                <a href={item.link}>
-                  <img src={logo} alt="" />
-                </a>
+            <a href={`/${item.id}`} key={index + 1}>
+              <div className={styles.linksContainer}>
+                <div style={{ backgroundColor: "#fff" }}>
+                  <a href={item.link}>
+                    <img src={item.image} alt="" />
+                  </a>
+                </div>
+                <div style={{ background: "transparent" }}>
+                  <p>{item.title}</p>
+                </div>
               </div>
-              <div key={index + 1} style={{ background: "transparent" }}>
-                <p>{item.name}</p>
-              </div>
-            </div>
+            </a>
           );
         })}
       </div>

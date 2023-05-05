@@ -73,7 +73,6 @@ const ProductsSection = () => {
       </div>
       <div className={styles.links}>
         {links.map((item, index) => {
-          console.log(item.name);
           return (
             <div key={index + 1} className={styles.linksContainer}>
               <a href={item.link}>

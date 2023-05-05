@@ -2,6 +2,7 @@
     padding: 20px 0;
     border-radius: 20px;
     margin: 10px 0;
+    
 }
 .titleContainer {
     display: flex;
@@ -34,18 +35,18 @@
 }
 .links {
     display: flex;
-    justify-content: space-between;
-    width: fit-content;
+     width: fit-content;
     align-items: center;
-    justify-content: center;
-    overflow-y: scroll;
     width: 100%;
+    flex-wrap: wrap;
     
 }
 .linksContainer {
     border-radius: 30px;
     min-width: 250px;
-    min-height: 250px;
+    min-height: 300px;
+    max-width: 250px;
+    max-height: 300px;
     margin: 10px;
     display: flex;
     flex-direction: column;
@@ -53,9 +54,13 @@
     /* justify-content: center; */
     overflow: hidden;
     border: 1px solid #3d424c;
+    background-color: #fff;
+    padding: 20px;
 }
 .linksContainer img {
-    width: 250px;
+    height: 150px;
+    width: 150px;
+    object-fit: contain;
 }
 .linksContainer a {
     margin-bottom: 50px;
