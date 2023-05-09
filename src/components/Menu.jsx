@@ -1,6 +1,8 @@
-import React from 'react';
+//styles
 import styles from '../styles/menu.module.css';
-import { IconContext } from "react-icons";
+
+//components
+import React from 'react';
 import {TbApps} from 'react-icons/tb';
 import {AiOutlinePercentage} from 'react-icons/ai';
 import {BiHelpCircle} from 'react-icons/bi';
@@ -71,7 +73,7 @@ const Menu = (params) => {
     <div className={styles.container}>
       <div>
         <div className={styles.categoriesActive} >
-          <TbApps color="#f90" />
+          <TbApps color="#f90" size="1.6em" />
           <a href="#"><h2>Categories</h2></a>
         </div>
         <div className={styles.links} >
@@ -84,17 +86,17 @@ const Menu = (params) => {
           })}
         </div>
         <div className={styles.categories}>
-          <AiOutlinePercentage />
+          <AiOutlinePercentage size="1.6em" />
           <a href="#"><h2>Sell on Amazon</h2></a>
         </div>
         <div className={styles.categories}>
-          <BiHelpCircle />
+          <BiHelpCircle size="1.6em" />
           <a href="#"><h2>Help</h2></a>
         </div>
       </div>
       <div>
         <div className={styles.categories}>
-          <FiLogOut />
+          <FiLogOut size="1.6em" />
           <a href="#"><h2>Log Out</h2></a>
         </div>
       </div>
