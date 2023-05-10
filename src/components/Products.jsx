@@ -4,22 +4,32 @@ import styles from "../styles/products.module.css";
 //components
 import React, { useState, useEffect } from "react";
 import { AiFillFire } from "react-icons/ai";
-import logo from "../logo.svg";
 import { AiOutlineLeft } from "react-icons/ai";
 import { AiOutlineRight } from "react-icons/ai";
 import {AiFillStar} from 'react-icons/ai';
 import {AiOutlineStar} from 'react-icons/ai';
+import {AiOutlineShoppingCart} from 'react-icons/ai';
 
 
 
-const Products = () => {
+const Products = ({ cart, setCart }) => {
+  const [loading, setLoading] = useState(true);
+
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
+    setLoading(true);
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
-      .then((json) => setProducts(json));
+      .then((json) => {
+        setProducts(json);
+        setLoading(false);
+      }).catch((err) => console.log(err));
   }, []);
+
+  if (loading){
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className={styles.mainContainer}>
@@ -40,12 +50,11 @@ const Products = () => {
       <div className={styles.links}>
         {products.map((item, index) => {
           return (
-            <a href={`/${item.id}`} key={index + 1} >
               <div className={styles.linksContainer}>
-                <div className={styles.imgContainer}>
-                  <a href={item.link}>
-                    <img src={item.image} alt="" />
-                  </a>
+              <div className={styles.imgContainer}>
+              <a href={`/product/${item.id}`}>
+                <img src={item.image} alt="" />
+              </a>
                 </div>
                 <div key={index + 1} style={{ background: "transparent" }} className={styles.productName}>
                   <div className={styles.title}>
@@ -69,9 +78,11 @@ const Products = () => {
                   <div className={styles.price}>
                     <p>€ {item.price}</p>
                   </div>
+                  <div className={styles.cartButton} onClick={() => setCart(cart + 1)}>
+                    <p>Aggiungi al carrello <AiOutlineShoppingCart fill="#fff" /></p>
+                  </div>
                 </div>
               </div>
-            </a>
           );
         })}
       </div>

@@ -6,7 +6,7 @@ import {AiOutlineShoppingCart} from 'react-icons/ai';
 import {AiOutlineBell} from 'react-icons/ai';
 import {AiOutlineDown} from 'react-icons/ai';
 
-const Navbar = () => {
+const Navbar = ({ cart }) => {
   return (
     <nav>
       <div className={styles.logo}>
@@ -30,7 +30,12 @@ const Navbar = () => {
         <div className={styles.icon}>
           <AiOutlineHeart color="#000" className={styles.navbarHover} />
         </div>
-        <div className={styles.icon}>
+        <div className={styles.icon} id={styles.cart}>
+          {cart !== 0 && 
+            <div className={styles.notification}>
+              {cart}
+            </div>
+          }
           <AiOutlineShoppingCart color="#000" className={styles.navbarHover} />
         </div>
         <div className={styles.icon}>

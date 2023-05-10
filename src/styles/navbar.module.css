@@ -76,3 +76,19 @@ nav {
     border: solid 1px #f90;
     margin-right: 10px;
 }
+#cart {
+    position: relative;
+}
+.notification {
+    background-color: red;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    position: absolute;
+    right: 5px;
+}

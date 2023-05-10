@@ -31,7 +31,7 @@ const Product = () => {
       </div>
       <div className="main" >
         <Menu />
-        <MainProduct product={product} />
+        <MainProduct product={product} loading={true} />
       </div>
     </div>
   );

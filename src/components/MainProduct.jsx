@@ -6,7 +6,7 @@ import React from 'react';
 import {AiFillStar} from 'react-icons/ai';
 import {AiOutlineStar} from 'react-icons/ai';
 
-const MainProduct = ({product}) => {
+const MainProduct = ({product,loading}) => {
     console.log(product);
 
   return (
@@ -24,10 +24,10 @@ const MainProduct = ({product}) => {
                     <AiOutlineStar fill="#f90" size="1.6em" />
                 </div>
                 <div className={styles.ProductRate}>
-                    {/* <p>{product.rating.rate}</p> */}
+                    <p>{product?.rating?.rate}</p>
                 </div>
                 <div className={styles.productReviews}>
-                    {/* <p>{product.rating.count} reviews</p> */}
+                    <p>{product?.rating?.count} reviews</p>
                 </div>
             </div>
         </div>

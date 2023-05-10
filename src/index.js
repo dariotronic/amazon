@@ -23,7 +23,7 @@ const router = createBrowserRouter([
     element: <Product />,
 
     // when the URL matches this segment
-    path: "/:productId",
+    path: "/product/:productId",
 
     // with this data loaded before rendering
     // loader: async ({ request, params }) => {
